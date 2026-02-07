@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Entities
+namespace fitnessApi.Models.Entities
 {
     public class GrupoMuscular
     {
@@ -17,6 +17,7 @@ namespace Domain.Entities
 
         [Column("MUSCULOS")]
         [Required]
+        [InverseProperty("GrupoMuscular")]
         public List<Musculos> Musculos { get; set; } = new List<Musculos>();
 
         public GrupoMuscular(int id, string? nomeGrupoMuscular, string? descricaoGrupo, List<Musculos> musculos)

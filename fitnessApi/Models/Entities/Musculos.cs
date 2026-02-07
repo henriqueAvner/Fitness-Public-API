@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Entities
+namespace fitnessApi.Models.Entities
 {
     public class Musculos
     {
@@ -25,12 +25,14 @@ namespace Domain.Entities
         [Required]
         public string? TipoTecido { get; set; }
 
+        [ForeignKey("GrupoMuscularId")]
         [Column("GRUPO_MUSCULAR_ID")]
         [Required]
         public int GrupoMuscularId { get; set; }
 
-        [ForeignKey("GrupoMuscularId")]
+       
         [Required]
+        [InverseProperty("Musculos")]
         public GrupoMuscular GrupoMuscular { get; set; }
 
         [Column("FIBRA_MUSCULAR")]

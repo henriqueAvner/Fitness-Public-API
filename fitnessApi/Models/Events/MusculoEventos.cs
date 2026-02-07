@@ -1,4 +1,4 @@
-﻿namespace Domain.Events
+﻿namespace fitnessApi.Models.Events
 {
     public class MusculoEventos
     {

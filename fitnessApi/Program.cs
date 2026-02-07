@@ -1,6 +1,15 @@
+using fitnessApi.Models.Entities;
+using fitnessApi.Repository;
+using fitnessApi.Repository.Context;
+using fitnessApi.Repository.ExercicioRepository;
+
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
+builder.Services.AddDbContext<FitnessContext>();
+builder.Services.AddScoped<FitnessContext>();
+builder.Services.AddScoped<IRepository<Exercicios>, ExercicioRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

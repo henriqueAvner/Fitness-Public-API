@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Entities
+namespace fitnessApi.Models.Entities
 {
     public class Exercicios
     {
@@ -19,9 +19,10 @@ namespace Domain.Entities
 
         [Column("MUSCULOS_ID")]
         [Required]
+        [ForeignKey("MusculosId")]
         public int MusculosId { get; set; }
 
-        [ForeignKey("MusculosId")]
+        [InverseProperty("Exercicios")]
         public Musculos Musculos { get; set; }
 
         public Exercicios(int id, string? nomeExercicio, string? descricaoExercicio, int musculosId)
