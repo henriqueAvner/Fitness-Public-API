@@ -1,10 +1,11 @@
 ﻿using fitnessApi.Models.Entities;
 using fitnessApi.Repository;
 using fitnessApi.Repository.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace fitnessApi.Repository.ExercicioRepository
 {
-    public class ExercicioRepository : IRepository<Exercicios>
+    public class ExercicioRepository : IExercicioRepository
     {
         private readonly FitnessContext _context;
 
@@ -55,6 +56,17 @@ namespace fitnessApi.Repository.ExercicioRepository
             }            
             _context.SaveChanges();
             return findEntity!;
+        }
+
+        /// <summary>
+        /// Retorna o exercício com o músculo e o grupo muscular carregados
+        /// </summary>
+        public Exercicios GetWithMusculoAndGrupo(int id)
+        {
+            return _context.Exercicios
+                .Include(e => e.Musculos)                    // Carrega o músculo
+                    .ThenInclude(m => m.GrupoMuscular)       // Carrega o grupo do músculo
+                .FirstOrDefault(e => e.Id == id);
         }
     }
 }

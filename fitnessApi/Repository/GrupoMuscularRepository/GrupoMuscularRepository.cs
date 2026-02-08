@@ -1,13 +1,17 @@
-﻿
-using fitnessApi.Models.Entities;
+﻿using fitnessApi.Models.Entities;
 using fitnessApi.Repository.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace fitnessApi.Repository.GrupoMuscularRepository
 {
-    public class GrupoMuscularRepository : IRepository<GrupoMuscular>
+    public class GrupoMuscularRepository : IGrupoMuscularRepository
     {
-
         private readonly FitnessContext _context;
+
+        public GrupoMuscularRepository(FitnessContext context)
+        {
+            _context = context;
+        }
 
         public GrupoMuscular Add(GrupoMuscular entity)
         {
@@ -45,6 +49,16 @@ namespace fitnessApi.Repository.GrupoMuscularRepository
                 _context.SaveChanges();
             }
             return entity;
+        }
+
+        /// <summary>
+        /// Retorna o grupo muscular com todos os músculos carregados
+        /// </summary>
+        public GrupoMuscular GetWithMusculos(int id)
+        {
+            return _context.GruposMusculares
+                .Include(g => g.Musculos)    // Carrega todos os músculos do grupo
+                .FirstOrDefault(g => g.Id == id);
         }
     }
 }

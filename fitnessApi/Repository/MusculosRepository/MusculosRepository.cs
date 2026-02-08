@@ -4,10 +4,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace fitnessApi.Repository.MusculosRepository
 {
-    public class MusculosRepository : IRepository<Musculos>
+    public class MusculosRepository : IMusculoRepository
     {
-
         private readonly FitnessContext _context;
+
+        public MusculosRepository(FitnessContext context)
+        {
+            _context = context;
+        }
+
         public List<Musculos> GetAll()
         {
             return _context.Musculos.ToList();
@@ -57,6 +62,15 @@ namespace fitnessApi.Repository.MusculosRepository
             _context.SaveChanges();
         }
 
-
+        /// <summary>
+        /// Retorna o músculo com o grupo muscular e todos os exercícios carregados
+        /// </summary>
+        public Musculos GetWithGrupoAndExercicios(int id)
+        {
+            return _context.Musculos
+                .Include(m => m.GrupoMuscular)    // Carrega o grupo muscular
+                .Include(m => m.Exercicios)       // Carrega todos os exercícios
+                .FirstOrDefault(m => m.Id == id);
+        }
     }
 }

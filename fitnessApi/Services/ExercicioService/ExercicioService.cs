@@ -1,14 +1,14 @@
 using fitnessApi.Models.Entities;
-using fitnessApi.Repository;
+using fitnessApi.Repository.ExercicioRepository;
 using fitnessApi.Services.Exceptions;
 
 namespace fitnessApi.Services.ExercicioService
 {
-    public class ExercicioService : IService<Exercicios>
+    public class ExercicioService : IExercicioService
     {
-        private readonly IRepository<Exercicios> _repository;
+        private readonly IExercicioRepository _repository;
 
-        public ExercicioService(IRepository<Exercicios> repository)
+        public ExercicioService(IExercicioRepository repository)
         {
             _repository = repository;
         }
@@ -60,6 +60,21 @@ namespace fitnessApi.Services.ExercicioService
             }
             
             _repository.Delete(id);
+        }
+
+        /// <summary>
+        /// Retorna o exercício com o músculo e o grupo muscular
+        /// </summary>
+        public Exercicios GetWithMusculoAndGrupo(int id)
+        {
+            var exercicio = _repository.GetWithMusculoAndGrupo(id);
+            
+            if (exercicio == null)
+            {
+                throw new NotFoundException("Exercício", id);
+            }
+            
+            return exercicio;
         }
     }
 }

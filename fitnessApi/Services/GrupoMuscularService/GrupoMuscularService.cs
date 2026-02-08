@@ -1,14 +1,14 @@
 using fitnessApi.Models.Entities;
-using fitnessApi.Repository;
+using fitnessApi.Repository.GrupoMuscularRepository;
 using fitnessApi.Services.Exceptions;
 
 namespace fitnessApi.Services.GrupoMuscularService
 {
-    public class GrupoMuscularService : IService<GrupoMuscular>
+    public class GrupoMuscularService : IGrupoMuscularService
     {
-        private readonly IRepository<GrupoMuscular> _repository;
+        private readonly IGrupoMuscularRepository _repository;
 
-        public GrupoMuscularService(IRepository<GrupoMuscular> repository)
+        public GrupoMuscularService(IGrupoMuscularRepository repository)
         {
             _repository = repository;
         }
@@ -59,13 +59,23 @@ namespace fitnessApi.Services.GrupoMuscularService
                 throw new NotFoundException("Grupo muscular", id);
             }
             
-            // Regra de negócio: verificar se tem músculos vinculados antes de deletar
-            // if (existing.Musculos.Any())
-            // {
-            //     throw new BadRequestException("Não é possível deletar grupo com músculos vinculados.");
-            // }
-            
             _repository.Delete(id);
         }
+
+        /// <summary>
+        /// Retorna o grupo muscular com todos os músculos
+        /// </summary>
+        public GrupoMuscular GetWithMusculos(int id)
+        {
+            var grupo = _repository.GetWithMusculos(id);
+            
+            if (grupo == null)
+            {
+                throw new NotFoundException("Grupo muscular", id);
+            }
+            
+            return grupo;
+        }
     }
+}
 }
