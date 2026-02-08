@@ -7,11 +7,70 @@
 namespace fitnessApi.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedData : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "GruposMusculares",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NOME_GRUPO_MUSCULAR = table.Column<string>(type: "TEXT", nullable: false),
+                    DESCRICAO_GRUPO = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GruposMusculares", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Musculos",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NOME_MUSCULO = table.Column<string>(type: "TEXT", nullable: false),
+                    MOVIMENTO_PRINCIPAL = table.Column<string>(type: "TEXT", nullable: false),
+                    FUNCAO = table.Column<string>(type: "TEXT", nullable: false),
+                    TIPO_TECIDO = table.Column<string>(type: "TEXT", nullable: false),
+                    GRUPO_MUSCULAR_ID = table.Column<int>(type: "INTEGER", nullable: false),
+                    FIBRA_MUSCULAR = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Musculos", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Musculos_GruposMusculares_GRUPO_MUSCULAR_ID",
+                        column: x => x.GRUPO_MUSCULAR_ID,
+                        principalTable: "GruposMusculares",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Exercicios",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NOME_EXERCICIO = table.Column<string>(type: "TEXT", nullable: false),
+                    DESCRICAO_EXERCICIO = table.Column<string>(type: "TEXT", nullable: false),
+                    MUSCULOS_ID = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exercicios", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Exercicios_Musculos_MUSCULOS_ID",
+                        column: x => x.MUSCULOS_ID,
+                        principalTable: "Musculos",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "GruposMusculares",
                 columns: new[] { "Id", "DESCRICAO_GRUPO", "NOME_GRUPO_MUSCULAR" },
@@ -142,560 +201,29 @@ namespace fitnessApi.Migrations
                     { 67, "Sente-se e apoie o antebraço na coxa ou em um banco. Segure um halter com a mão em posição pronada (palma para baixo). Gire o antebraço externamente (supinação) até a palma ficar voltada para cima. Contraia o supinador e o bíceps durante o movimento. Retorne à posição pronada de forma controlada. O cotovelo permanece fixo.", 34, "Supinação com Halter" },
                     { 68, "Segure um bastão com peso fixado em apenas uma extremidade. Mantenha o antebraço pronado horizontalmente. Gire o antebraço para fora (supinação) controlando o peso. Este exercício trabalha intensamente o supinador e o bíceps. A resistência do peso em desequilíbrio aumenta o desafio. Execute de forma lenta e controlada.", 34, "Supinação com Bastão (Peso em uma Extremidade)" }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Exercicios_MUSCULOS_ID",
+                table: "Exercicios",
+                column: "MUSCULOS_ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Musculos_GRUPO_MUSCULAR_ID",
+                table: "Musculos",
+                column: "GRUPO_MUSCULAR_ID");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 1);
+            migrationBuilder.DropTable(
+                name: "Exercicios");
 
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 2);
+            migrationBuilder.DropTable(
+                name: "Musculos");
 
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 3);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 4);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 5);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 6);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 7);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 8);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 9);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 10);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 11);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 12);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 13);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 14);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 15);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 16);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 17);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 18);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 19);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 20);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 21);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 22);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 23);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 24);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 25);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 26);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 27);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 28);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 29);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 30);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 31);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 32);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 33);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 34);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 35);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 36);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 37);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 38);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 39);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 40);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 41);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 42);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 43);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 44);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 45);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 46);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 47);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 48);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 49);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 50);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 51);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 52);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 53);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 54);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 55);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 56);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 57);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 58);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 59);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 60);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 61);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 62);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 63);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 64);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 65);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 66);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 67);
-
-            migrationBuilder.DeleteData(
-                table: "Exercicios",
-                keyColumn: "ID",
-                keyValue: 68);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 1);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 2);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 3);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 4);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 5);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 6);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 7);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 8);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 9);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 10);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 11);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 12);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 13);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 14);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 15);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 16);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 17);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 18);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 19);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 20);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 21);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 22);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 23);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 24);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 25);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 26);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 27);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 28);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 29);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 30);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 31);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 32);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 33);
-
-            migrationBuilder.DeleteData(
-                table: "Musculos",
-                keyColumn: "ID",
-                keyValue: 34);
-
-            migrationBuilder.DeleteData(
-                table: "GruposMusculares",
-                keyColumn: "Id",
-                keyValue: 1);
-
-            migrationBuilder.DeleteData(
-                table: "GruposMusculares",
-                keyColumn: "Id",
-                keyValue: 2);
-
-            migrationBuilder.DeleteData(
-                table: "GruposMusculares",
-                keyColumn: "Id",
-                keyValue: 3);
-
-            migrationBuilder.DeleteData(
-                table: "GruposMusculares",
-                keyColumn: "Id",
-                keyValue: 4);
-
-            migrationBuilder.DeleteData(
-                table: "GruposMusculares",
-                keyColumn: "Id",
-                keyValue: 5);
-
-            migrationBuilder.DeleteData(
-                table: "GruposMusculares",
-                keyColumn: "Id",
-                keyValue: 6);
-
-            migrationBuilder.DeleteData(
-                table: "GruposMusculares",
-                keyColumn: "Id",
-                keyValue: 7);
-
-            migrationBuilder.DeleteData(
-                table: "GruposMusculares",
-                keyColumn: "Id",
-                keyValue: 8);
+            migrationBuilder.DropTable(
+                name: "GruposMusculares");
         }
     }
 }
