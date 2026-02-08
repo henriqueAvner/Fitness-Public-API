@@ -83,11 +83,14 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// Aplica migrations automaticamente na inicialização
-using (var scope = app.Services.CreateScope())
+// Aplica migrations automaticamente na inicialização (exceto em ambiente de teste)
+if (!app.Environment.IsEnvironment("Testing"))
 {
-    var context = scope.ServiceProvider.GetRequiredService<FitnessContext>();
-    context.Database.Migrate();
+    using (var scope = app.Services.CreateScope())
+    {
+        var context = scope.ServiceProvider.GetRequiredService<FitnessContext>();
+        context.Database.Migrate();
+    }
 }
 
 // Configure the HTTP request pipeline.
@@ -112,3 +115,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// Expõe a classe Program para os testes de integração
+public partial class Program { }
