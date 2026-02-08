@@ -1,0 +1,674 @@
+{
+  "sistema_muscular": {
+    "tipos_fibras_musculares": {
+      "tipo_1": {
+        "nome": "Fibras de Contração Lenta (Tipo I)",
+        "caracteristicas": {
+          "cor": "Vermelha",
+          "velocidade_contracao": "Lenta",
+          "resistencia_fadiga": "Alta",
+          "metabolismo": "Aeróbico/Oxidativo",
+          "mitocondrias": "Alto número",
+          "mioglobina": "Alto conteúdo",
+          "capilares": "Alta densidade",
+          "diametro": "Menor",
+          "forca_geracao": "Baixa",
+          "duracao_atividade": "Longa"
+        },
+        "utilizacao": "Exercícios de resistência, postura, atividades de longa duração"
+      },
+      "tipo_2a": {
+        "nome": "Fibras Rápidas Oxidativas-Glicolíticas (Tipo IIa)",
+        "caracteristicas": {
+          "cor": "Rosa/Avermelhada",
+          "velocidade_contracao": "Rápida",
+          "resistencia_fadiga": "Moderada",
+          "metabolismo": "Misto (Aeróbico e Anaeróbico)",
+          "mitocondrias": "Número moderado",
+          "mioglobina": "Conteúdo moderado",
+          "capilares": "Densidade moderada",
+          "diametro": "Intermediário",
+          "forca_geracao": "Moderada-Alta",
+          "duracao_atividade": "Média"
+        },
+        "utilizacao": "Exercícios de força com repetições moderadas, atividades mistas"
+      },
+      "tipo_2x": {
+        "nome": "Fibras Rápidas Glicolíticas (Tipo IIx/IIb)",
+        "caracteristicas": {
+          "cor": "Branca",
+          "velocidade_contracao": "Muito rápida",
+          "resistencia_fadiga": "Baixa",
+          "metabolismo": "Anaeróbico/Glicolítico",
+          "mitocondrias": "Baixo número",
+          "mioglobina": "Baixo conteúdo",
+          "capilares": "Baixa densidade",
+          "diametro": "Maior",
+          "forca_geracao": "Muito alta",
+          "duracao_atividade": "Curta"
+        },
+        "utilizacao": "Explosões de força, sprints, levantamentos pesados"
+      }
+    },
+    "grupos_musculares": {
+      "peitoral": {
+        "descricao": "Músculos da região anterior do tórax",
+        "musculos": [
+          {
+            "nome": "Peitoral Maior",
+            "origem": [
+              "Metade medial da clavícula (porção clavicular)",
+              "Face anterior do esterno (porção esternocostal)",
+              "Cartilagens costais da 1ª à 6ª costelas",
+              "Aponeurose do músculo oblíquo externo do abdome"
+            ],
+            "insercao": "Crista do tubérculo maior do úmero e sulco intertubercular",
+            "funcao": [
+              "Adução do braço",
+              "Rotação medial (interna) do úmero",
+              "Flexão do braço (porção clavicular)",
+              "Extensão do braço (porção esternocostal)"
+            ],
+            "movimentos_principais": "Adução horizontal, flexão e rotação interna do ombro",
+            "inervacao": "Nervos peitorais lateral e medial (C5-T1)",
+            "tipo_fibra_predominante": "Tipo II (força e potência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Peitoral Menor",
+            "origem": "3ª, 4ª e 5ª costelas",
+            "insercao": "Processo coracoide da escápula",
+            "funcao": [
+              "Abdução e depressão da escápula",
+              "Rotação inferior da escápula",
+              "Auxiliar na respiração (quando escápula fixada)"
+            ],
+            "movimentos_principais": "Depressão e protração da escápula",
+            "inervacao": "Nervos peitorais medial e lateral (C6-T1)",
+            "tipo_fibra_predominante": "Tipo I (estabilização)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          }
+        ]
+      },
+      "costas": {
+        "descricao": "Músculos da região posterior do tronco",
+        "musculos": [
+          {
+            "nome": "Trapézio",
+            "origem": [
+              "Osso occipital",
+              "Ligamento nucal",
+              "Processos espinhosos de C7 a T12"
+            ],
+            "insercao": [
+              "Terço lateral da clavícula",
+              "Acrômio",
+              "Espinha da escápula"
+            ],
+            "funcao": [
+              "Elevação da escápula (fibras superiores)",
+              "Retração da escápula (fibras médias)",
+              "Depressão da escápula (fibras inferiores)",
+              "Rotação superior da escápula",
+              "Extensão e rotação da cabeça/pescoço"
+            ],
+            "movimentos_principais": "Elevação, retração e rotação da escápula",
+            "inervacao": "Nervo acessório (NC XI) e plexo cervical (C3-C4)",
+            "tipo_fibra_predominante": "Tipo I (postura e estabilização)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Grande Dorsal (Latíssimo do Dorso)",
+            "origem": [
+              "Processos espinhosos de T7 a L5",
+              "Sacro",
+              "Crista ilíaca",
+              "3-4 costelas inferiores"
+            ],
+            "insercao": "Sulco intertubercular do úmero",
+            "funcao": [
+              "Extensão do braço",
+              "Adução do braço",
+              "Rotação medial do úmero",
+              "Auxiliar na respiração"
+            ],
+            "movimentos_principais": "Extensão, adução e rotação interna do ombro",
+            "inervacao": "Nervo toracodorsal (C6-C8)",
+            "tipo_fibra_predominante": "Tipo II (força)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Romboides (Maior e Menor)",
+            "origem": [
+              "Ligamento nucal e C7-T1 (romboide menor)",
+              "T2-T5 (romboide maior)"
+            ],
+            "insercao": "Borda medial da escápula",
+            "funcao": [
+              "Retração da escápula",
+              "Elevação da escápula",
+              "Rotação inferior da escápula"
+            ],
+            "movimentos_principais": "Retração e elevação da escápula",
+            "inervacao": "Nervo dorsal da escápula (C5)",
+            "tipo_fibra_predominante": "Tipo I (estabilização postural)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          }
+        ]
+      },
+      "pernas": {
+        "descricao": "Músculos dos membros inferiores (coxa e perna)",
+        "musculos": [
+          {
+            "nome": "Quadríceps Femoral",
+            "componentes": [
+              "Reto Femoral",
+              "Vasto Lateral",
+              "Vasto Medial",
+              "Vasto Intermédio"
+            ],
+            "origem": [
+              "Espinha ilíaca anteroinferior (reto femoral)",
+              "Fêmur (vastos)"
+            ],
+            "insercao": "Patela e tuberosidade da tíbia (via ligamento patelar)",
+            "funcao": [
+              "Extensão do joelho",
+              "Flexão do quadril (reto femoral)"
+            ],
+            "movimentos_principais": "Extensão do joelho, flexão do quadril",
+            "inervacao": "Nervo femoral (L2-L4)",
+            "tipo_fibra_predominante": "Tipo II (força e potência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Isquiotibiais",
+            "componentes": [
+              "Bíceps Femoral",
+              "Semitendíneo",
+              "Semimembranoso"
+            ],
+            "origem": "Tuberosidade isquiática",
+            "insercao": [
+              "Cabeça da fíbula (bíceps femoral)",
+              "Tíbia proximal medial (semitendíneo e semimembranoso)"
+            ],
+            "funcao": [
+              "Flexão do joelho",
+              "Extensão do quadril",
+              "Rotação medial e lateral da perna"
+            ],
+            "movimentos_principais": "Flexão do joelho, extensão do quadril",
+            "inervacao": "Nervo ciático (L5-S2)",
+            "tipo_fibra_predominante": "Tipo I e II (misto)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Gastrocnêmio",
+            "origem": "Côndilos femorais (cabeças medial e lateral)",
+            "insercao": "Calcâneo (via tendão de Aquiles)",
+            "funcao": [
+              "Flexão plantar do tornozelo",
+              "Flexão do joelho"
+            ],
+            "movimentos_principais": "Flexão plantar, flexão do joelho",
+            "inervacao": "Nervo tibial (S1-S2)",
+            "tipo_fibra_predominante": "Tipo II (explosão)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Sóleo",
+            "origem": [
+              "Cabeça da fíbula",
+              "Linha solear da tíbia"
+            ],
+            "insercao": "Calcâneo (via tendão de Aquiles)",
+            "funcao": "Flexão plantar do tornozelo",
+            "movimentos_principais": "Flexão plantar",
+            "inervacao": "Nervo tibial (S1-S2)",
+            "tipo_fibra_predominante": "Tipo I (resistência e postura)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          }
+        ]
+      },
+      "ombros": {
+        "descricao": "Músculos da região do ombro e cintura escapular",
+        "musculos": [
+          {
+            "nome": "Deltoide",
+            "porcoes": [
+              "Anterior (clavicular)",
+              "Medial (acromial)",
+              "Posterior (espinal)"
+            ],
+            "origem": [
+              "Terço lateral da clavícula",
+              "Acrômio",
+              "Espinha da escápula"
+            ],
+            "insercao": "Tuberosidade deltoide do úmero",
+            "funcao": [
+              "Abdução do braço (porção acromial)",
+              "Flexão e rotação medial (porção anterior)",
+              "Extensão e rotação lateral (porção posterior)"
+            ],
+            "movimentos_principais": "Abdução, flexão e extensão do ombro",
+            "inervacao": "Nervo axilar (C5-C6)",
+            "tipo_fibra_predominante": "Tipo II (força)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Manguito Rotador - Supraespinal",
+            "origem": "Fossa supraespinal da escápula",
+            "insercao": "Tubérculo maior do úmero",
+            "funcao": [
+              "Abdução do ombro (primeiros 15-30°)",
+              "Estabilização da articulação glenoumeral"
+            ],
+            "movimentos_principais": "Abdução inicial e estabilização",
+            "inervacao": "Nervo supraescapular (C5-C6)",
+            "tipo_fibra_predominante": "Tipo I (estabilização)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Manguito Rotador - Infraespinal",
+            "origem": "Fossa infraespinal da escápula",
+            "insercao": "Tubérculo maior do úmero",
+            "funcao": [
+              "Rotação lateral do braço",
+              "Estabilização da articulação glenoumeral"
+            ],
+            "movimentos_principais": "Rotação externa e estabilização",
+            "inervacao": "Nervo supraescapular (C5-C6)",
+            "tipo_fibra_predominante": "Tipo I (estabilização)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Manguito Rotador - Redondo Menor",
+            "origem": "Borda lateral da escápula",
+            "insercao": "Tubérculo maior do úmero",
+            "funcao": [
+              "Rotação lateral do braço",
+              "Adução do braço",
+              "Estabilização da articulação glenoumeral"
+            ],
+            "movimentos_principais": "Rotação externa e estabilização",
+            "inervacao": "Nervo axilar (C5-C6)",
+            "tipo_fibra_predominante": "Tipo I (estabilização)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Manguito Rotador - Subescapular",
+            "origem": "Fossa subescapular da escápula",
+            "insercao": "Tubérculo menor do úmero",
+            "funcao": [
+              "Rotação medial do braço",
+              "Adução do braço",
+              "Estabilização da articulação glenoumeral"
+            ],
+            "movimentos_principais": "Rotação interna e estabilização",
+            "inervacao": "Nervos subescapulares (C5-C7)",
+            "tipo_fibra_predominante": "Tipo I (estabilização)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          }
+        ]
+      },
+      "bracos": {
+        "descricao": "Músculos do braço (entre ombro e cotovelo)",
+        "musculos": [
+          {
+            "nome": "Bíceps Braquial",
+            "cabecas": [
+              "Cabeça Longa",
+              "Cabeça Curta"
+            ],
+            "origem": [
+              "Tubérculo supraglenoidal da escápula (cabeça longa)",
+              "Processo coracoide (cabeça curta)"
+            ],
+            "insercao": [
+              "Tuberosidade do rádio",
+              "Fáscia do antebraço (aponeurose bicipital)"
+            ],
+            "funcao": [
+              "Flexão do cotovelo",
+              "Supinação do antebraço",
+              "Flexão do ombro (auxiliar)"
+            ],
+            "movimentos_principais": "Flexão do cotovelo, supinação",
+            "inervacao": "Nervo musculocutâneo (C5-C7)",
+            "tipo_fibra_predominante": "Tipo II (força)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Tríceps Braquial",
+            "cabecas": [
+              "Cabeça Longa",
+              "Cabeça Lateral",
+              "Cabeça Medial"
+            ],
+            "origem": [
+              "Tubérculo infraglenoidal da escápula (longa)",
+              "Face posterior do úmero superior (lateral)",
+              "Face posterior do úmero inferior (medial)"
+            ],
+            "insercao": "Olécrano da ulna",
+            "funcao": [
+              "Extensão do cotovelo",
+              "Extensão e adução do ombro (cabeça longa)"
+            ],
+            "movimentos_principais": "Extensão do cotovelo",
+            "inervacao": "Nervo radial (C6-C8)",
+            "tipo_fibra_predominante": "Tipo II (força)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Braquial",
+            "origem": "Metade distal da face anterior do úmero",
+            "insercao": "Processo coronoide e tuberosidade da ulna",
+            "funcao": "Flexão do cotovelo (principal flexor)",
+            "movimentos_principais": "Flexão do cotovelo",
+            "inervacao": "Nervo musculocutâneo (C5-C6)",
+            "tipo_fibra_predominante": "Tipo II (força)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          }
+        ]
+      },
+      "abdomen": {
+        "descricao": "Músculos da parede abdominal",
+        "musculos": [
+          {
+            "nome": "Reto Abdominal",
+            "origem": "5ª a 7ª cartilagens costais e processo xifoide",
+            "insercao": "Sínfise púbica e crista púbica",
+            "funcao": [
+              "Flexão do tronco",
+              "Compressão das vísceras abdominais",
+              "Expiração forçada"
+            ],
+            "movimentos_principais": "Flexão do tronco",
+            "inervacao": "Nervos intercostais (T7-T11) e subcostal (T12)",
+            "tipo_fibra_predominante": "Tipo I e II (misto)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Oblíquo Externo",
+            "origem": "5ª a 12ª costelas",
+            "insercao": [
+              "Crista ilíaca",
+              "Ligamento inguinal",
+              "Linha alba"
+            ],
+            "funcao": [
+              "Flexão do tronco",
+              "Flexão lateral ipsilateral",
+              "Rotação contralateral",
+              "Compressão abdominal"
+            ],
+            "movimentos_principais": "Flexão, rotação e inclinação lateral",
+            "inervacao": "Nervos intercostais, ílio-hipogástrico e ílio-inguinal",
+            "tipo_fibra_predominante": "Tipo I (postura)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Oblíquo Interno",
+            "origem": [
+              "Fáscia toracolombar",
+              "Crista ilíaca",
+              "Ligamento inguinal"
+            ],
+            "insercao": [
+              "10ª a 12ª costelas",
+              "Linha alba"
+            ],
+            "funcao": [
+              "Flexão do tronco",
+              "Flexão lateral ipsilateral",
+              "Rotação ipsilateral",
+              "Compressão abdominal"
+            ],
+            "movimentos_principais": "Flexão, rotação e inclinação lateral",
+            "inervacao": "Nervos intercostais, ílio-hipogástrico e ílio-inguinal",
+            "tipo_fibra_predominante": "Tipo I (postura)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Transverso do Abdome",
+            "origem": [
+              "Cartilagens costais das 6 últimas costelas",
+              "Fáscia toracolombar",
+              "Crista ilíaca",
+              "Ligamento inguinal"
+            ],
+            "insercao": "Linha alba",
+            "funcao": [
+              "Compressão abdominal (principal)",
+              "Estabilização da coluna lombar",
+              "Expiração forçada",
+              "Aumento da pressão intra-abdominal"
+            ],
+            "movimentos_principais": "Estabilização do core, compressão abdominal",
+            "inervacao": "Nervos intercostais e subcostal",
+            "tipo_fibra_predominante": "Tipo I (estabilização)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          }
+        ]
+      },
+      "gluteos": {
+        "descricao": "Músculos da região glútea",
+        "musculos": [
+          {
+            "nome": "Glúteo Máximo",
+            "origem": [
+              "Crista ilíaca posterior",
+              "Sacro",
+              "Cóccix",
+              "Ligamento sacrotuberal"
+            ],
+            "insercao": [
+              "Tuberosidade glútea do fêmur",
+              "Trato iliotibial"
+            ],
+            "funcao": [
+              "Extensão do quadril (principal)",
+              "Rotação lateral da coxa",
+              "Estabilização da pelve"
+            ],
+            "movimentos_principais": "Extensão e rotação externa do quadril",
+            "inervacao": "Nervo glúteo inferior (L5-S2)",
+            "tipo_fibra_predominante": "Tipo II (força e potência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Glúteo Médio",
+            "origem": "Superfície glútea do ílio (entre linhas glúteas anterior e posterior)",
+            "insercao": "Trocânter maior do fêmur",
+            "funcao": [
+              "Abdução da coxa",
+              "Rotação medial da coxa (fibras anteriores)",
+              "Estabilização da pelve durante a marcha"
+            ],
+            "movimentos_principais": "Abdução e estabilização pélvica",
+            "inervacao": "Nervo glúteo superior (L4-S1)",
+            "tipo_fibra_predominante": "Tipo I (estabilização)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Glúteo Mínimo",
+            "origem": "Superfície glútea do ílio (entre linhas glúteas anterior e inferior)",
+            "insercao": "Trocânter maior do fêmur",
+            "funcao": [
+              "Abdução da coxa",
+              "Rotação medial da coxa",
+              "Estabilização da pelve"
+            ],
+            "movimentos_principais": "Abdução e rotação interna do quadril",
+            "inervacao": "Nervo glúteo superior (L4-S1)",
+            "tipo_fibra_predominante": "Tipo I (estabilização)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          }
+        ]
+      },
+      "antebracos": {
+        "descricao": "Músculos do antebraço (entre cotovelo e punho)",
+        "musculos": [
+          {
+            "nome": "Flexor Radial do Carpo",
+            "origem": "Epicôndilo medial do úmero",
+            "insercao": "Base do 2º metacarpo",
+            "funcao": [
+              "Flexão do punho",
+              "Abdução da mão (desvio radial)"
+            ],
+            "movimentos_principais": "Flexão e desvio radial do punho",
+            "inervacao": "Nervo mediano (C6-C7)",
+            "tipo_fibra_predominante": "Tipo I (resistência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Flexor Ulnar do Carpo",
+            "origem": [
+              "Epicôndilo medial do úmero",
+              "Olécrano",
+              "Margem posterior da ulna"
+            ],
+            "insercao": [
+              "Osso pisiforme",
+              "Hâmulo do hamato",
+              "5º metacarpo"
+            ],
+            "funcao": [
+              "Flexão do punho",
+              "Adução da mão (desvio ulnar)"
+            ],
+            "movimentos_principais": "Flexão e desvio ulnar do punho",
+            "inervacao": "Nervo ulnar (C7-T1)",
+            "tipo_fibra_predominante": "Tipo I (resistência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Flexor Superficial dos Dedos",
+            "origem": [
+              "Epicôndilo medial",
+              "Processo coronoide da ulna"
+            ],
+            "insercao": "Falange média dos dedos 2-5",
+            "funcao": [
+              "Flexão das articulações interfalângicas proximais",
+              "Flexão do punho"
+            ],
+            "movimentos_principais": "Flexão dos dedos e punho",
+            "inervacao": "Nervo mediano (C7-T1)",
+            "tipo_fibra_predominante": "Tipo I (resistência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Flexor Profundo dos Dedos",
+            "origem": [
+              "Face anterior da ulna",
+              "Membrana interóssea"
+            ],
+            "insercao": "Base da falange distal dos dedos 2-5",
+            "funcao": "Flexão das articulações interfalângicas distais",
+            "movimentos_principais": "Flexão distal dos dedos",
+            "inervacao": "Nervo mediano e ulnar (C8-T1)",
+            "tipo_fibra_predominante": "Tipo I (resistência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Extensor Radial Longo do Carpo",
+            "origem": "Crista supracondilar lateral do úmero",
+            "insercao": "Base do 2º metacarpo",
+            "funcao": [
+              "Extensão do punho",
+              "Abdução da mão (desvio radial)"
+            ],
+            "movimentos_principais": "Extensão e desvio radial do punho",
+            "inervacao": "Nervo radial (C6-C7)",
+            "tipo_fibra_predominante": "Tipo I (resistência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Extensor Radial Curto do Carpo",
+            "origem": "Epicôndilo lateral do úmero",
+            "insercao": "Base do 3º metacarpo",
+            "funcao": [
+              "Extensão do punho",
+              "Abdução da mão"
+            ],
+            "movimentos_principais": "Extensão do punho",
+            "inervacao": "Nervo radial (C7-C8)",
+            "tipo_fibra_predominante": "Tipo I (resistência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Extensor Ulnar do Carpo",
+            "origem": "Epicôndilo lateral do úmero",
+            "insercao": "Base do 5º metacarpo",
+            "funcao": [
+              "Extensão do punho",
+              "Adução da mão (desvio ulnar)"
+            ],
+            "movimentos_principais": "Extensão e desvio ulnar do punho",
+            "inervacao": "Nervo radial (C6-C8)",
+            "tipo_fibra_predominante": "Tipo I (resistência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Extensor dos Dedos",
+            "origem": "Epicôndilo lateral do úmero",
+            "insercao": "Expansão extensora dos dedos 2-5",
+            "funcao": [
+              "Extensão das articulações metacarpofalângicas",
+              "Extensão do punho"
+            ],
+            "movimentos_principais": "Extensão dos dedos e punho",
+            "inervacao": "Nervo radial (C7-C8)",
+            "tipo_fibra_predominante": "Tipo I (resistência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Pronador Redondo",
+            "origem": [
+              "Epicôndilo medial do úmero",
+              "Processo coronoide da ulna"
+            ],
+            "insercao": "Face lateral do terço médio do rádio",
+            "funcao": [
+              "Pronação do antebraço",
+              "Flexão do cotovelo (auxiliar)"
+            ],
+            "movimentos_principais": "Pronação do antebraço",
+            "inervacao": "Nervo mediano (C6-C7)",
+            "tipo_fibra_predominante": "Tipo I (resistência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          },
+          {
+            "nome": "Supinador",
+            "origem": [
+              "Epicôndilo lateral do úmero",
+              "Ligamento colateral radial"
+            ],
+            "insercao": "Terço proximal da face lateral do rádio",
+            "funcao": "Supinação do antebraço",
+            "movimentos_principais": "Supinação do antebraço",
+            "inervacao": "Nervo radial (C5-C6)",
+            "tipo_fibra_predominante": "Tipo I (resistência)",
+            "tipo_tecido": "Muscular estriado esquelético"
+          }
+        ]
+      }
+    }
+  },
+  "metadata": {
+    "versao": "1.0",
+    "data_criacao": "2026-02-08",
+    "descricao": "Base de dados anatômica completa de grupos musculares para API pública de sistema muscular e exercícios",
+    "notas": [
+      "Todos os músculos listados são do tipo tecido muscular estriado esquelético",
+      "As fibras musculares predominantes são indicações gerais e podem variar entre indivíduos",
+      "Os movimentos principais são baseados na anatomia funcional padrão",
+      "A inervação segue a nomenclatura anatômica internacional"
+    ]
+  }
+}

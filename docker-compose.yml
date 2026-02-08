@@ -8,3 +8,8 @@ services:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Password123!
       - MSSQL_PID=Developer
+    volumes:
+      - sql_data:/var/opt/mssql
+
+volumes:
+  sql_data:

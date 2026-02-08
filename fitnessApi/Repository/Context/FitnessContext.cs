@@ -1,4 +1,5 @@
 ﻿using fitnessApi.Models.Entities;
+using fitnessApi.Repository.Context.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace fitnessApi.Repository.Context
@@ -40,16 +41,10 @@ namespace fitnessApi.Repository.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Musculos>()
-                .HasMany(e => e.Exercicios)
-                .WithOne(m => m.Musculos)
-                .HasForeignKey(e => e.MusculosId);
-
-            modelBuilder.Entity<Musculos>()
-                .HasOne(g => g.GrupoMuscular)
-                .WithMany(m => m.Musculos)
-                .HasForeignKey(g => g.GrupoMuscularId);
-
+            // Aplica todas as configurações separadas
+            modelBuilder.ApplyConfiguration(new GrupoMuscularConfiguration());
+            modelBuilder.ApplyConfiguration(new MusculosConfiguration());
+            modelBuilder.ApplyConfiguration(new ExerciciosConfiguration());
         }
 
     }
