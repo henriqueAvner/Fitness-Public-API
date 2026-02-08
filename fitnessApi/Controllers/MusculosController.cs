@@ -1,5 +1,4 @@
 using fitnessApi.Models.DTOs;
-using fitnessApi.Models.Entities;
 using fitnessApi.Services.MusculoService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -77,75 +76,6 @@ namespace fitnessApi.Controllers
             };
             
             return Ok(dto);
-        }
-
-        /// <summary>
-        /// Cria um novo músculo
-        /// </summary>
-        [HttpPost]
-        public ActionResult<MusculoDto> Add([FromBody] MusculoRequestDto request)
-        {
-            var entity = new Musculos
-            {
-                NomeMusculo = request.Nome,
-                MovimentoPrincipal = request.MovimentoPrincipal,
-                Funcao = request.Funcao,
-                TipoTecido = request.TipoTecido,
-                FibraMuscular = request.FibraMuscular,
-                GrupoMuscularId = request.GrupoMuscularId
-            };
-            
-            var created = _service.Add(entity);
-            
-            var dto = new MusculoDto
-            {
-                Id = created.Id,
-                Nome = created.NomeMusculo ?? string.Empty,
-                MovimentoPrincipal = created.MovimentoPrincipal ?? string.Empty,
-                Funcao = created.Funcao ?? string.Empty
-            };
-            
-            return CreatedAtAction(nameof(GetById), new { id = dto.Id }, dto);
-        }
-
-        /// <summary>
-        /// Atualiza um músculo existente
-        /// </summary>
-        [HttpPut("{id}")]
-        public ActionResult<MusculoDto> Update(int id, [FromBody] MusculoRequestDto request)
-        {
-            var entity = new Musculos
-            {
-                Id = id,
-                NomeMusculo = request.Nome,
-                MovimentoPrincipal = request.MovimentoPrincipal,
-                Funcao = request.Funcao,
-                TipoTecido = request.TipoTecido,
-                FibraMuscular = request.FibraMuscular,
-                GrupoMuscularId = request.GrupoMuscularId
-            };
-            
-            var updated = _service.Update(entity, id);
-            
-            var dto = new MusculoDto
-            {
-                Id = updated.Id,
-                Nome = updated.NomeMusculo ?? string.Empty,
-                MovimentoPrincipal = updated.MovimentoPrincipal ?? string.Empty,
-                Funcao = updated.Funcao ?? string.Empty
-            };
-            
-            return Ok(dto);
-        }
-
-        /// <summary>
-        /// Remove um músculo
-        /// </summary>
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
-        {
-            _service.Delete(id);
-            return NoContent();
         }
     }
 }

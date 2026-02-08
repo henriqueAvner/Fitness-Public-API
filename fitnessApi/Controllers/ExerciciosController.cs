@@ -1,5 +1,4 @@
 using fitnessApi.Models.DTOs;
-using fitnessApi.Models.Entities;
 using fitnessApi.Services.ExercicioService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -67,67 +66,6 @@ namespace fitnessApi.Controllers
             };
             
             return Ok(dto);
-        }
-
-        /// <summary>
-        /// Cria um novo exercício
-        /// </summary>
-        [HttpPost]
-        public ActionResult<ExercicioDto> Add([FromBody] ExercicioRequestDto request)
-        {
-            var entity = new Exercicios
-            {
-                NomeExercicio = request.Nome,
-                DescricaoExercicio = request.Descricao,
-                MusculosId = request.MusculoId
-            };
-            
-            var created = _service.Add(entity);
-            
-            var dto = new ExercicioDto
-            {
-                Id = created.Id,
-                Nome = created.NomeExercicio ?? string.Empty,
-                Descricao = created.DescricaoExercicio ?? string.Empty
-            };
-            
-            return CreatedAtAction(nameof(GetById), new { id = dto.Id }, dto);
-        }
-
-        /// <summary>
-        /// Atualiza um exercício existente
-        /// </summary>
-        [HttpPut("{id}")]
-        public ActionResult<ExercicioDto> Update(int id, [FromBody] ExercicioRequestDto request)
-        {
-            var entity = new Exercicios
-            {
-                Id = id,
-                NomeExercicio = request.Nome,
-                DescricaoExercicio = request.Descricao,
-                MusculosId = request.MusculoId
-            };
-            
-            var updated = _service.Update(entity, id);
-            
-            var dto = new ExercicioDto
-            {
-                Id = updated.Id,
-                Nome = updated.NomeExercicio ?? string.Empty,
-                Descricao = updated.DescricaoExercicio ?? string.Empty
-            };
-            
-            return Ok(dto);
-        }
-
-        /// <summary>
-        /// Remove um exercício
-        /// </summary>
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
-        {
-            _service.Delete(id);
-            return NoContent();
         }
     }
 }
