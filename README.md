@@ -197,18 +197,6 @@ dotnet test
 | Controller | GruposControllerIntegrationTests | 10 |
 | Controller | MusculosControllerIntegrationTests | 10 |
 
-## 🗄️ Banco de Dados
-
-### Credenciais (Desenvolvimento)
-
-| Parâmetro | Valor |
-|-----------|-------|
-| Host | localhost |
-| Porta | 1433 |
-| Usuário | sa |
-| Senha | Password123! |
-| Database | FitnessDb |
-
 ### Diagrama de Entidades
 
 ```
@@ -229,8 +217,8 @@ dotnet test
 
 ## 📝 Licença
 
-Este projeto foi desenvolvido para fins educacionais.
+Este projeto foi desenvolvido no intuito de publicar essa API para estudos.
 
 ---
 
-Desenvolvido com ❤️ usando .NET 8.0
+Desenvolvido utilizando .NET 8.0
