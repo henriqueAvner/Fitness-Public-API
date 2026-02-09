@@ -39,22 +39,15 @@ builder.Services.AddRateLimiter(options =>
     options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
 });
 
-// Configuração do banco de dados (SQLite em produção, SQL Server em desenvolvimento)
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-var useSqlite = builder.Configuration.GetValue<bool>("UseSqlite");
-
+// Banco de dados (PostgreSQL em produção)
 builder.Services.AddDbContext<FitnessContext>(options =>
 {
-    if (useSqlite)
-    {
-        options.UseSqlite("Data Source=fitness.db");
-        Console.WriteLine("Usando SQLite como banco de dados.");
-    }
-    else
-    {
-        options.UseSqlServer(connectionString);
-        Console.WriteLine("Usando SQL Server como banco de dados.");
-    }
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+    if (string.IsNullOrEmpty(connectionString))
+        throw new Exception("Connection string não configurada.");
+
+    options.UseNpgsql(connectionString);
 });
 
 // Repositories
